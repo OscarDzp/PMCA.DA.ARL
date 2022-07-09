@@ -6,8 +6,8 @@ package Operaciones;
 
 /**
  *
- * @author Candy Maria Ramirez Castillo 
+ * @author Candy Maria Ramirez Castillo
  */
-class clsActivos {
+public class OpAutos {
     
 }

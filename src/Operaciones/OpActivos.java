@@ -12,17 +12,32 @@ import java.util.ArrayList;
  */
 
 public class OpActivos {
+    private clsActivo obActivo;
+    
+    public clsActivo getobActivo(){
+        return obActivo;
+    }
+    public void setobActivo(clsActivo obActivo){
+        this.obActivo = obActivo;
+    }
+    
+    public OpActivos(){}
+    
+    
     //CRUD de Activos
     public boolean Guardar(clsActivo obActivo){
         try {
             //Realizar la consulta 
             clsActivo obConsulta = this.Consultar(obActivo.getIdActivo());
             if (obConsultar != null || obConsulta.getIdActivo() == 0){
+                //Generar el Id del activo 
+                obActivo.setIdActivo(clsListas.cntActivos.size() + 1);
+                
                 //Cuando no existe se guarda.
                 return clsListas.cntActivos.add(obActivo);
             }else{
-                return false;
-                
+                //Cuando existe o generar error falso
+                return false;    
             }
         }catch (Exception e){
             //Cuando existe o generar error falso. 
@@ -67,7 +82,10 @@ public class OpActivos {
         }
         return obRespuesta;
 
-}
+    }
     
+    public clsActivo Consultar(String idActivo){
+        
+    }
 
 }
