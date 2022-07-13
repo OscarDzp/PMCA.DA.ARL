@@ -1,7 +1,7 @@
 package Operaciones;
 
 import Clases.clsEmpleado;
-import DB.clsListas;
+import DB.clsListar;
 import java.util.ArrayList;
 
 /**
@@ -14,8 +14,8 @@ public class OpEmpleados {
         try {
             clsEmpleado obConsulta = this.Consultar(obEmpleado.getCodigo());
             if (obConsulta != null && obConsulta.getIdEmpleado() == 0) {
-                obEmpleado.setIdEmpleado(clsListas.cntEmpleados.size() + 1);
-                return clsListas.cntEmpleados.add(obEmpleado);
+                obEmpleado.setIdEmpleado(clsListar.cntEmpleados.size() + 1);
+                return clsListar.cntEmpleados.add(obEmpleado);
             } else {
                 return false;
             }
@@ -29,7 +29,7 @@ public class OpEmpleados {
             clsEmpleado obConsulta = this.Consultar(obEmpleado.getIdEmpleado());
             if (obConsulta != null && obConsulta.getIdEmpleado() > 0) {
                 this.Eliminar(obEmpleado.getIdEmpleado());
-                return clsListas.cntEmpleados.add(obEmpleado);
+                return clsListar.cntEmpleados.add(obEmpleado);
             } else {
                 return false;
             }
@@ -39,13 +39,13 @@ public class OpEmpleados {
     }
 
     public boolean Eliminar(int idEmpleado) {
-        return clsListas.cntEmpleados.remove(this.Consultar(idEmpleado));
+        return clsListar.cntEmpleados.remove(this.Consultar(idEmpleado));
     }
 
     public clsEmpleado Consultar(int idEmpleado) {
         clsEmpleado obRespuesta = new clsEmpleado();
         try {
-            for (clsEmpleado empleado : clsListas.cntEmpleados) {
+            for (clsEmpleado empleado : clsListar.cntEmpleados) {
                 if (empleado.getIdEmpleado() == idEmpleado) {
                     obRespuesta = empleado;
                     break;
@@ -60,7 +60,7 @@ public class OpEmpleados {
     public clsEmpleado Consultar(String codigo) {
         clsEmpleado obRespuesta = new clsEmpleado();
         try {
-            for (clsEmpleado empleado : clsListas.cntEmpleados) {
+            for (clsEmpleado empleado : clsListar.cntEmpleados) {
                 if (empleado.getCodigo().toLowerCase().equals(codigo)) {
                     obRespuesta = empleado;
                     break;
@@ -73,7 +73,7 @@ public class OpEmpleados {
     }
     
     public ArrayList<clsEmpleado> Listar(){
-        return clsListas.cntEmpleados;
+        return clsListar.cntEmpleados;
     }
 
 }

@@ -2,7 +2,7 @@
 package Operaciones;
 
 import Clases.clsAutos;
-import DB.clsListas;
+import DB.clsListar;
 import java.util.ArrayList;
 
 /**
@@ -15,9 +15,9 @@ public class OpAutos {
             clsAutos obConsulta = this.Consultar(obAutos.getCodigo());
             if (obConsulta != null && obConsulta.getIdAutos() == 0) {
                 
-                obAutos.setIdAutos(clsListas.cntAutos.size() + 1);
+                obAutos.setIdAutos(clsListar.cntAutos.size() + 1);
                 
-                return clsListas.cntActivos.add(obAutos);
+                return clsListar.cntAutos.add(obAutos);
             } else {
                 
                 return false;
@@ -36,7 +36,7 @@ public class OpAutos {
                 
                 this.Eliminar(obAutos.getIdAutos());
             
-                return clsListas.cntAutos.add(obAutos);
+                return clsListar.cntAutos.add(obAutos);
             } else {
                 
                 return false;
@@ -48,13 +48,13 @@ public class OpAutos {
     }
     
     public boolean Eliminar(int idAutos){
-        return clsListas.cntActivos.remove(this.Consultar(idAutos));
+        return clsListar.cntActivos.remove(this.Consultar(idAutos));
     }
     
     public clsAutos Consultar(int idAutos){
         clsAutos obRespuesta = new clsAutos();
         try {
-            for (clsAutos autos: clsListas.cntAutos) {
+            for (clsAutos autos: clsListar.cntAutos) {
                 if (autos.getIdAutos() == idAutos) {
                     obRespuesta = autos;
                     break;
@@ -69,7 +69,7 @@ public class OpAutos {
     public clsAutos Consultar(String codigo){
         clsAutos obRespuesta = new clsAutos();
         try {
-            for (clsAutos activo : clsListas.cntAutos) {
+            for (clsAutos activo : clsListar.cntAutos) {
                 
                 if (activo.getCodigo().toLowerCase().equals(codigo)) {
                     obRespuesta = activo;
@@ -83,7 +83,7 @@ public class OpAutos {
     }
     
     public ArrayList<clsAutos> Listar(){
-        return clsListas.cntAutos;
+        return clsListar.cntAutos;
     }
     
 }

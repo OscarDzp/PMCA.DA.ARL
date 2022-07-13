@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DB;
+
+import Clases.clsActivo;
+import Clases.clsAutos;
+import Clases.clsEmpleado;
+import java.util.ArrayList;
 
 /**
  *
  * @author karii
  */
 public class clsListar {
-    
+
+    public static ArrayList<clsActivo> cntActivos = new ArrayList<>();
+    public static ArrayList<clsEmpleado> cntEmpleados = new ArrayList<>();
+    public static ArrayList<clsAutos> cntAutos = new ArrayList<>();
+
 }

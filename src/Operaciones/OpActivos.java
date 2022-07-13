@@ -1,7 +1,7 @@
 package Operaciones;
 
 import Clases.clsActivo;
-import DB.clsListas;
+import DB.clsListar;
 import java.util.ArrayList;
 
 /**
@@ -15,9 +15,9 @@ public class OpActivos {
             clsActivo obConsulta = this.Consultar(obActivo.getCodigo());
             if (obConsulta != null && obConsulta.getIdActivo() == 0) {
 
-                obActivo.setIdActivo(clsListas.cntActivos.size() + 1);
+                obActivo.setIdActivo(clsListar.cntActivos.size() + 1);
 
-                return clsListas.cntActivos.add(obActivo);
+                return clsListar.cntActivos.add(obActivo);
             } else {
                 return false;
             }
@@ -34,7 +34,7 @@ public class OpActivos {
 
                 this.Eliminar(obActivo.getIdActivo());
 
-                return clsListas.cntActivos.add(obActivo);
+                return clsListar.cntActivos.add(obActivo);
             } else {
 
                 return false;
@@ -46,13 +46,13 @@ public class OpActivos {
     }
 
     public boolean Eliminar(int idActivo) {
-        return clsListas.cntActivos.remove(this.Consultar(idActivo));
+        return clsListar.cntActivos.remove(this.Consultar(idActivo));
     }
 
     public clsActivo Consultar(int idActivo) {
         clsActivo obRespuesta = new clsActivo();
         try {
-            for (clsActivo activo : clsListas.cntActivos) {
+            for (clsActivo activo : clsListar.cntActivos) {
                 if (activo.getIdActivo() == idActivo) {
                     obRespuesta = activo;
                     break;
@@ -67,7 +67,7 @@ public class OpActivos {
     public clsActivo Consultar(String codigo) {
         clsActivo obRespuesta = new clsActivo();
         try {
-            for (clsActivo activo : clsListas.cntActivos) {
+            for (clsActivo activo : clsListar.cntActivos) {
 
                 if (activo.getCodigo().toLowerCase().equals(codigo)) {
                     obRespuesta = activo;
@@ -81,6 +81,6 @@ public class OpActivos {
     }
 
     public ArrayList<clsActivo> Listar() {
-        return clsListas.cntActivos;
+        return clsListar.cntActivos;
     }
 }
