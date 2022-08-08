@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Candy Maria Ramirez Castillo
+ * @author Karii
  */
 public class OpAutos {
     public boolean Guardar(clsAutos obAutos){

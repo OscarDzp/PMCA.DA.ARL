@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Candy Maria Ramirez Castillo
+ * @author Karii
  */
 public class OpActivos {
 
